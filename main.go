@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	router "rest-bench/http_router"
 	echo "rest-bench/http_router/echo_impl"
 	gin "rest-bench/http_router/gin_impl"
@@ -18,7 +19,7 @@ func main() {
 	// ---------- INIT GIN ----------
 	ginRouter := gin.New()
 	ginRouter.GET("/", func(c router.ContextRouter) error {
-		return c.JSON(200, model.Router{
+		return c.JSON(http.StatusOK, model.Router{
 			Name: "gin",
 		})
 	})
@@ -27,7 +28,7 @@ func main() {
 	// // ---------- INIT ECHO ----------
 	echoRouter := echo.New()
 	echoRouter.GET("/", func(c router.ContextRouter) error {
-		return c.JSON(200, model.Router{
+		return c.JSON(http.StatusOK, model.Router{
 			Name: "echo",
 		})
 	})
@@ -36,8 +37,8 @@ func main() {
 	// // ---------- INIT MUX ----------
 	muxRouter := mux.New()
 	muxRouter.GET("/", func(c router.ContextRouter) error {
-		return c.JSON(200, model.Router{
-			Name: "gin",
+		return c.JSON(http.StatusOK, model.Router{
+			Name: "mux",
 		})
 	})
 	go muxRouter.SERVE(portMux)
