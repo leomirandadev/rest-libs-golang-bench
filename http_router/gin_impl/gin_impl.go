@@ -15,7 +15,7 @@ type ginImpl struct {
 
 func New() http_router.Router {
 	gin.SetMode(gin.ReleaseMode)
-	return &ginImpl{dispatch: gin.Default()}
+	return &ginImpl{dispatch: gin.New()}
 }
 
 func (g *ginImpl) GET(uri string, resolver http_router.ResolveHandler) {
