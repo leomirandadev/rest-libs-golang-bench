@@ -24,20 +24,20 @@ Benchmark test with most popular libs in Go. Test implements a GET method wrappe
     </tr>
     <tr>
         <td>Gin</td>
-        <td>2672</td>
-        <td>499074 ns/op</td>
-        <td>17023 B/op</td>
+        <td>2730</td>
+        <td>429,50 ms/op</td>
+        <td>17,04 KB/op</td>
     </tr>
     <tr>
         <td>Echo</td>
-        <td>2762</td>
-        <td>437556 ns/op</td>
-        <td>17037 B/op</td>
+        <td>2720</td>
+        <td>447,75 ms/op</td>
+        <td>17,02 KB/op</td>
     </tr>
     <tr>
         <td>Mux</td>
-        <td>2836</td>
-        <td>424428 ns/op</td>
-        <td>17025 B/op</td>
+        <td>2730</td>
+        <td>539,45 ms/op</td>
+        <td>17,16 KB/op</td>
     </tr>
 </table>
