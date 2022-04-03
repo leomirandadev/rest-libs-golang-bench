@@ -1,36 +1,46 @@
 package main
 
 import (
-	"rest-bench/http_router"
+	router "rest-bench/http_router"
+	echo "rest-bench/http_router/echo_impl"
+	gin "rest-bench/http_router/gin_impl"
+	mux "rest-bench/http_router/mux_impl"
 	"rest-bench/model"
 )
+
+const portGin int = 8081
+const portEcho int = 8082
+const portMux int = 8083
 
 func main() {
 	finished := make(chan bool)
 
-	ginRouter := http_router.NewMux()
-	ginRouter.GET("/", func(c http_router.ContextRouter) error {
-		return c.JSON(200, model.Router{
-			Name: "mux",
-		})
-	})
-	go ginRouter.SERVE(8081)
-
-	echoRouter := http_router.NewEcho()
-	echoRouter.GET("/", func(c http_router.ContextRouter) error {
-		return c.JSON(200, model.Router{
-			Name: "echo",
-		})
-	})
-	go echoRouter.SERVE(8082)
-
-	muxRouter := http_router.NewGin()
-	muxRouter.GET("/", func(c http_router.ContextRouter) error {
+	// ---------- INIT GIN ----------
+	ginRouter := gin.New()
+	ginRouter.GET("/", func(c router.ContextRouter) error {
 		return c.JSON(200, model.Router{
 			Name: "gin",
 		})
 	})
-	go muxRouter.SERVE(8083)
+	go ginRouter.SERVE(portGin)
+
+	// // ---------- INIT ECHO ----------
+	echoRouter := echo.New()
+	echoRouter.GET("/", func(c router.ContextRouter) error {
+		return c.JSON(200, model.Router{
+			Name: "echo",
+		})
+	})
+	go echoRouter.SERVE(portEcho)
+
+	// // ---------- INIT MUX ----------
+	muxRouter := mux.New()
+	muxRouter.GET("/", func(c router.ContextRouter) error {
+		return c.JSON(200, model.Router{
+			Name: "gin",
+		})
+	})
+	go muxRouter.SERVE(portMux)
 
 	<-finished
 
