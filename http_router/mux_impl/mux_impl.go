@@ -22,7 +22,7 @@ func (m *muxImpl) GET(uri string, resolver http_router.ResolveHandler) {
 
 	m.dispatch.HandleFunc(uri, func(w http.ResponseWriter, r *http.Request) {
 		ctx := newContext(w, r)
-		resolver(ctx)
+		_ = resolver(ctx)
 	}).Methods("GET")
 }
 

@@ -17,6 +17,6 @@ type echoContext struct {
 }
 
 func (c *echoContext) JSON(code int, obj interface{}) error {
-	c.ctx.Status(code)
+	_ = c.ctx.Status(code)
 	return c.ctx.JSON(obj)
 }
