@@ -3,7 +3,7 @@ Benchmark test with most popular libs in Go. Test implements a GET method wrappe
 
 ### Libs selected:
 - Fiber;
-- FastHTTP;
+- FastHTTP (using [fastHTTP routing](http://github.com/qiangxue/fasthttp-routing), cause the package doesn't have it);
 - Gin;
 - Echo;
 - Mux;
