@@ -27,6 +27,6 @@ func (e *fiberImpl) GET(uri string, resolver http_router.ResolveHandler) {
 
 func (e *fiberImpl) SERVE(port int) {
 	portString := strconv.Itoa(port)
-	fmt.Println("serving with fiber on ", port)
+	fmt.Println("serving with FASTHTTP on ", port)
 	log.Fatal(fasthttp.ListenAndServe(":"+portString, e.dispatch.HandleRequest))
 }

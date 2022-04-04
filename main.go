@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	router "rest-bench/http_router"
+	chi "rest-bench/http_router/chi_impl"
 	echo "rest-bench/http_router/echo_impl"
 	fasthttp "rest-bench/http_router/fasthttp_routing_impl"
 	fiber "rest-bench/http_router/fiber_impl"
@@ -16,6 +17,7 @@ const portEcho int = 8082
 const portMux int = 8083
 const portFiber int = 8084
 const portFastHttpRouting int = 8085
+const portChi int = 8086
 
 func main() {
 	finished := make(chan bool)
@@ -46,6 +48,15 @@ func main() {
 		})
 	})
 	go muxRouter.SERVE(portMux)
+
+	// // ---------- INIT CHI ----------
+	chiRouter := chi.New()
+	chiRouter.GET("/", func(c router.ContextRouter) error {
+		return c.JSON(http.StatusOK, model.Router{
+			Name: "chi",
+		})
+	})
+	go chiRouter.SERVE(portChi)
 
 	// // ---------- INIT FIBER ----------
 	fiberRouter := fiber.New()

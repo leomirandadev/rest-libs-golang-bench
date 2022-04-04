@@ -9,6 +9,7 @@ Ps.: You can enjoy to use the HTTP dependency inversion for your clean Architect
 - Gin;
 - Echo;
 - Mux;
+- Chi;
 
 ### Go Version:
 - go version go1.18 darwin/amd64
@@ -29,32 +30,38 @@ Ps.: All the benchmarks it was executed apart
     </tr>
     <tr>
         <td>Fiber</td>
-        <td>2379</td>
-        <td>468,03 ms/op</td>
+        <td>2347</td>
+        <td>477,48 ms/op</td>
         <td>16,42 KB/op</td>
     </tr>
     <tr>
         <td>FastHTTP routing</td>
-        <td>2379</td>
-        <td>489,90 ms/op</td>
+        <td>2218</td>
+        <td>530,2 ms/op</td>
         <td>16,45 KB/op</td>
     </tr>
     <tr>
         <td>Gin</td>
-        <td>2730</td>
-        <td>429,50 ms/op</td>
-        <td>17,04 KB/op</td>
+        <td>2751</td>
+        <td>409,44 ms/op</td>
+        <td>15,73 KB/op</td>
     </tr>
     <tr>
         <td>Echo</td>
-        <td>2720</td>
-        <td>447,75 ms/op</td>
-        <td>17,02 KB/op</td>
+        <td>2660</td>
+        <td>431,43 ms/op</td>
+        <td>15,73 KB/op</td>
     </tr>
     <tr>
         <td>Mux</td>
-        <td>2730</td>
-        <td>539,45 ms/op</td>
-        <td>17,16 KB/op</td>
+        <td>2884</td>
+        <td>417,61 ms/op</td>
+        <td>15,73 KB/op</td>
+    </tr>
+    <tr>
+        <td>Chi</td>
+        <td>2560</td>
+        <td>406,07 ms/op</td>
+        <td>15,73 KB/op</td>
     </tr>
 </table>
