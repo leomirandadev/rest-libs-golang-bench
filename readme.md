@@ -1,6 +1,8 @@
 # BENCHMARK HTTP LIBS GO
 Benchmark test with most popular libs in Go. Test implements a GET method wrapper to delivery a common interface.
 
+Ps.: You can enjoy to use the HTTP dependency inversion for your clean Architecture project. 
+
 ### Libs selected:
 - Fiber;
 - FastHTTP (using [fastHTTP routing](http://github.com/qiangxue/fasthttp-routing), cause the package doesn't have it);
