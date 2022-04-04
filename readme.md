@@ -2,6 +2,8 @@
 Benchmark test with most popular libs in Go. Test implements a GET method wrapper to delivery a common interface.
 
 ### Libs selected:
+- Fiber;
+- FastHTTP;
 - Gin;
 - Echo;
 - Mux;
