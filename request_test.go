@@ -12,6 +12,7 @@ func BenchmarkRequestGin(b *testing.B) {
 		if resp.StatusCode != http.StatusOK {
 			print("error")
 		}
+		resp.Body.Close()
 	}
 }
 func BenchmarkRequestEcho(b *testing.B) {
@@ -20,6 +21,7 @@ func BenchmarkRequestEcho(b *testing.B) {
 		if resp.StatusCode != http.StatusOK {
 			print("error")
 		}
+		resp.Body.Close()
 	}
 }
 func BenchmarkRequestMux(b *testing.B) {
@@ -28,5 +30,6 @@ func BenchmarkRequestMux(b *testing.B) {
 		if resp.StatusCode != http.StatusOK {
 			print("error")
 		}
+		resp.Body.Close()
 	}
 }
