@@ -4,6 +4,8 @@ import (
 	"net/http"
 	router "rest-bench/http_router"
 	echo "rest-bench/http_router/echo_impl"
+	fasthttp "rest-bench/http_router/fasthttp_routing_impl"
+	fiber "rest-bench/http_router/fiber_impl"
 	gin "rest-bench/http_router/gin_impl"
 	mux "rest-bench/http_router/mux_impl"
 	"rest-bench/model"
@@ -12,6 +14,8 @@ import (
 const portGin int = 8081
 const portEcho int = 8082
 const portMux int = 8083
+const portFiber int = 8084
+const portFastHttpRouting int = 8085
 
 func main() {
 	finished := make(chan bool)
@@ -42,6 +46,24 @@ func main() {
 		})
 	})
 	go muxRouter.SERVE(portMux)
+
+	// // ---------- INIT FIBER ----------
+	fiberRouter := fiber.New()
+	fiberRouter.GET("/", func(c router.ContextRouter) error {
+		return c.JSON(http.StatusOK, model.Router{
+			Name: "fiber",
+		})
+	})
+	go fiberRouter.SERVE(portFiber)
+
+	// // ---------- INIT FASTHTTP ROUTING ----------
+	fasthttpRouter := fasthttp.New()
+	fasthttpRouter.GET("/", func(c router.ContextRouter) error {
+		return c.JSON(http.StatusOK, model.Router{
+			Name: "fasthttp",
+		})
+	})
+	go fasthttpRouter.SERVE(portFastHttpRouting)
 
 	<-finished
 

@@ -15,12 +15,25 @@ Benchmark test with most popular libs in Go. Test implements a GET method wrappe
 - RAM: 16 GB 2667 MHz DDR4
 
 ### RESULTS
+Ps.: All the benchmarks it was executed apart
 <table>
     <tr>
         <th>Lib</th>
         <th>Qty Operations</th>
         <th>Average time per operation</th>
         <th>Average memory per operation</th>
+    </tr>
+    <tr>
+        <td>Fiber</td>
+        <td>2379</td>
+        <td>468,03 ms/op</td>
+        <td>16,42 KB/op</td>
+    </tr>
+    <tr>
+        <td>FastHTTP routing</td>
+        <td>2379</td>
+        <td>489,90 ms/op</td>
+        <td>16,45 KB/op</td>
     </tr>
     <tr>
         <td>Gin</td>

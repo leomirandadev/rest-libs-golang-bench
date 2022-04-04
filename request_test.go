@@ -6,6 +6,26 @@ import (
 	"testing"
 )
 
+func BenchmarkRequestFiber(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resp, _ := http.Get("http://localhost:" + strconv.Itoa(portFiber))
+		if resp.StatusCode != http.StatusOK {
+			print("error")
+		}
+		resp.Body.Close()
+	}
+}
+
+func BenchmarkRequestFastHttpRouting(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resp, _ := http.Get("http://localhost:" + strconv.Itoa(portFastHttpRouting))
+		if resp.StatusCode != http.StatusOK {
+			print("error")
+		}
+		resp.Body.Close()
+	}
+}
+
 func BenchmarkRequestGin(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resp, _ := http.Get("http://localhost:" + strconv.Itoa(portGin))
