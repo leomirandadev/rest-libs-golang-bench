@@ -21,7 +21,7 @@ func New() http_router.Router {
 func (g *ginImpl) GET(uri string, resolver http_router.ResolveHandler) {
 	g.dispatch.GET(uri, func(c *gin.Context) {
 		ctx := newContext(c)
-		resolver(ctx)
+		_ = resolver(ctx)
 	})
 }
 
