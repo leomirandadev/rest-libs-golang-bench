@@ -3,23 +3,39 @@ Benchmark test with most popular libs in Go. Test implements a GET method wrappe
 
 Ps.: You can enjoy to use the HTTP dependency inversion for your clean Architecture project. 
 
-### Libs selected:
-- Fiber;
-- FastHTTP (using [fastHTTP routing](http://github.com/qiangxue/fasthttp-routing), cause the package doesn't have it);
-- Gin;
-- Echo;
-- Mux;
-- Chi;
+# Libs selected:
+- [Fiber](https://github.com/gofiber/fiber);
+- [FastHTTP](github.com/valyala/fasthttp) (using [fastHTTP routing](http://github.com/qiangxue/fasthttp-routing), cause the package doesn't have it);
+- [Gin](github.com/gin-gonic/gin);
+- [Echo](github.com/labstack/echo);
+- [Mux](github.com/gorilla/mux);
+- [Chi](github.com/go-chi/chi);
 
-### Go Version:
+# Go Version:
 - go version go1.18 darwin/amd64
 
-### Setup
+# Setup
 - CPU: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
 - OS: Macos Monterey 12.3.1
 - RAM: 16 GB 2667 MHz DDR4
 
-### RESULTS
+# Execute Tests with Makefile
+If you want run the tests, basically you have to run:
+```shell
+ $ make up
+``` 
+and run the tests individually using:
+
+```shell
+ $ make run-fiber #used to run fiber benchmark
+ $ make run-fasthttp # used to run fasthttp benchmark
+ $ make run-gin # used to run gin benchmark
+ $ make run-echo # used to run echo benchmark
+ $ make run-mux # used to run mux benchmark
+ $ make run-chi # used to run chi benchmark
+``` 
+
+# RESULTS
 Ps.: All the benchmarks it was executed apart
 <table>
     <tr>
